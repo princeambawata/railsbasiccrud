@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get '/articles/:id' => 'articles#show'
   post '/articles/create' => 'articles#create'
   get '/articles/:id/edit' => 'articles#edit'
-  post '/articles/:id/update' => 'articles#update'
+  patch '/articles/:id' => 'articles#update'
   get '/articles/:id/delete' => 'articles#delete'
 
 end

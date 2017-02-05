@@ -5,6 +5,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
+		@article = Article.new
 	end
 
 	def edit
@@ -13,9 +14,7 @@ class ArticlesController < ApplicationController
 
 
 	def create
-		title = params["title"]
-		content = params["content"]
-		Article.create(title: title, content: content)
+		Article.create(article_params(params))
 		redirect_to '/articles'
 	end
 
@@ -26,10 +25,7 @@ class ArticlesController < ApplicationController
 	def update
 		id = params["id"]
 		article = Article.find(id)
-		title = params["title"]
-		content = params["content"]
-		article.title = title
-		article.content = content
+		article.update(article_params(params))
 		article.save
 	    return redirect_to '/articles'
 	end
@@ -40,5 +36,12 @@ class ArticlesController < ApplicationController
 		article.destroy
 	    return redirect_to '/articles'
 	end
+
+
+	private
+	def article_params params
+		params.require(:article).permit(:title, :content)
+	end
+
 
 end

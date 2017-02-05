@@ -1,8 +1,12 @@
 <h4>Edit Article </h4>
 
-<form action="/articles/<%= @article.id %>/update" method="POST">
-Title: <input type="text" name="title" value="<%= @article.title %>"><br>
-Content: <input type="text" name="content" value="<%= @article.content %>"><br>
-<input type="submit" name="submit" value="Update Article">
+<%= form_for(@article, url: url_for(controller: 'articles', action: 'update')) do |f| %>
+
+Title <%= f.text_field :title %> <br>
+Content <%= f.text_field :content %> <br>
+<%= f.submit %>
+
+<% end %>
+
 
 </form>

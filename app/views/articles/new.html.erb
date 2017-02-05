@@ -1,15 +1,13 @@
 <h4> Create New Article </h4>
 
 
+<%= form_for @article do |f| %>
 
-<%= form_tag url_for(controller: 'articles', action: 'create') do %>
-Title: <%= text_field_tag :title %> <br>
-Content: <%= text_field_tag :content %> <br>
-<%= submit_tag "Create Article", class: "rahulsharmastyle"%>
- 
+Title <%= f.text_field :title %> <br>
+Content <%= f.text_field :content %> <br>
+<%= f.submit %>
 
 <% end %>
-
 
 
 <%= link_to "Go Back", articles_path %>
