@@ -1,11 +1,24 @@
 <h4> Create New Article </h4>
 
 
-<form action="/articles/create" method="POST">
-Title: <input type="text" name="title"><br>
-Content: <input type="text" name="content"><br>
-<input type="submit" name="submit" value="Create Article">
 
-</form>
+<%= form_tag url_for(controller: 'articles', action: 'create') do %>
+Title: <%= text_field_tag :title %> <br>
+Content: <%= text_field_tag :content %> <br>
+<%= submit_tag "Create Article", class: "rahulsharmastyle"%>
+ 
 
-<a href="/articles"> Go Back </a>
+<% end %>
+
+
+
+<%= link_to "Go Back", articles_path %>
+
+
+<style type="text/css">
+	.rahulsharmastyle{
+		padding: 8px;
+		background-color: aliceblue;
+	}
+</style>
+
